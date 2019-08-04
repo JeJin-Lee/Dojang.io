@@ -1,0 +1,34 @@
+CASE 1
+#include <stdio.h>
+
+void swapNumber(int first, int second){
+  int temp;
+  temp = first;
+  first = second;
+  second = temp;
+  }
+  
+  int main(){
+    int num1 = 10;
+    int num2 = 20;
+    swapNumber(num1,num2);
+    printf("%d %d\n", num1, num2);           // 두 값이 서로 바뀌지 않고 그대로 10,20이 출력됨. 즉, 매개변수는 값을 전달하는 역할만 할 뿐
+    }                                       // 함수 바깥의 변수와는 상관이 없음
+    
+   
+CASE2
+#include <stdio.h>
+void swapNumber(int *first, int *second){     //역참조로 값을 가져오고, 값을 저장한다. 또한 &을 사용하여 num1과 num2의 메모리 주소를 넣어줌
+  int temp;                                   // swapNumber 함수로 인해 두 값이 서로 바뀌게 된다.
+  temp = *first;
+  *first = *second;
+  *second = temp;
+  }
+  
+  int main(){
+    int num1 = 10;
+    int num2 = 20;
+    swapNumber(&num1, &num2);
+    printf("%d %d\n", num1, num2);
+    }
+    
