@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+int main(){
+    char s1[31];
+    char *s2;
+    s2 = malloc(sizeof(char)*31);
+    scanf("%s %s", s1, s2);
+    int ret = strcmp(s1,s2);
+    printf("%d", ret);
+    free(s2);
+    return 0;
+}
