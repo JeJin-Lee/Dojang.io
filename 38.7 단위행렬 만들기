@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main(){
+    int n, i=0, j=0;
+    scanf("%d", &n);  // 정수를 입력받는다
+    int **arr;        // 이중포인터 선언
+    arr = malloc(sizeof(int*)*n);       // 2차원배열의 세로행에 대해 동적 메모리 할당
+    
+    for(i=0; i<n; i++){
+        arr[i] = malloc(sizeof(int)*n); // 가로행에 대해 동적 메모리 할당
+        memset(arr[i],0, sizeof(int)*n);    // 초기화
+    }
+    
+    for(i=0; i<n; i++){         // 단위행렬 만듦
+        arr[i][i] = 1;
+    }
+    
+    for(i=0; i<n; i++){               // 출력
+        for(j=0; j<n; j++){
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+    
+    for(i=0; i<n; i++){         //
+        free(arr[i]);
+    }
+    free(arr);
+    return 0;
+    
+}
