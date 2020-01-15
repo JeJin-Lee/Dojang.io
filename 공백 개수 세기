@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(){
+    int cnt = 0;
+    char *s1 = malloc(sizeof(char)*1001);           // 동적할당을 통해 메모리 공간을 확보
+    scanf("%[^\n]s", s1);                           // 문자열 전체를 입력받음
+    
+    char *ptr = strchr(s1, ' ');                    // s1에서 공백을 찾고, 찾은 지점의 메모리 주소를 저장할 char 형 포인터변수 선언
+    
+    while(ptr != NULL){                             // 메모리 주소가 빈 공간이 나올때까지 반복문 실행, cnt 값은 1씩 증가
+        cnt++;
+        ptr = strchr(ptr+1, ' ');                   // 포인터변수에 1을 더해 다음 칸부터 공백을 찾을 수 있게 함
+    }
+    printf("%d", cnt);
+    free(s1);
+    return 0;
+}
