@@ -1,0 +1,33 @@
+<48.8>
+struct Dashboard d1;
+d1. speed = 80;
+d1. fuel = 'F';
+d1. mileage = 5821.442871f;
+d1. engineTemp = 200;
+d1. rpm = 1830;
+
+
+<48.9>
+typedef struct{
+    int speed;
+    char fuel;
+    float mileage;
+    int engineTemp;
+    int rpm;
+}Dashboard
+
+
+<49.8>
+struct Person *p1 = malloc(sizeof(struct Person));
+strcpy(p1->name, "고길동");
+p1->age = 40;
+strcpy(p1->address, "서울시 서초구 반포동");
+
+Car *c1 = malloc(sizeof(Car));
+strcpy(c1->name, "스텔라");
+c1->number=3421;
+c1->displacement=2000;
+
+<49.9>
+ptr = &p1;
+
