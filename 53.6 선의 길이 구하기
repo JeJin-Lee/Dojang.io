@@ -1,0 +1,38 @@
+표준 입력으로 x, y 좌표 4개가 입력되어 Point2D 구조체 배열에 저장됩니다. 여기서 점 4개는 첫 번째 점부터 마지막 점까지 순서대로 이어져 있습니다. 
+다음 소스 코드를 완성하여 첫 번째 점부터 마지막 점까지 연결된 선의 길이가 출력되게 만드세요.
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <math.h>
+
+struct Point2D {
+    int x;
+    int y;
+};
+
+int main()
+{
+    struct Point2D p[4];
+    double length = 0.0f;
+
+    scanf("%d %d %d %d %d %d %d %d", 
+        &p[0].x, &p[0].y, &p[1].x, &p[1].y,& p[2].x, &p[2].y, &p[3].x, &p[3].y
+    );
+
+    _______________________
+    _______________________
+    _______________________
+    _______________________
+
+    _______________________
+    _______________________ 
+
+    printf("%f\n", length);
+
+    return 0;
+}
+
+
+for(int i=0; i<sizeof(p)/sizeof(struct Point2D)-1; i++){
+    length += sqrt(pow(p[i].x-p[i+1].x,2)+pow(p[i].y-p[i+1].y,2));
+}
