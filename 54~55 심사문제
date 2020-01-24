@@ -1,0 +1,32 @@
+<54.7>
+union Data{
+  int num1;
+  char c1;
+ };
+  
+<54.8>
+union Data *d1 = malloc(sizeof(union Data));
+d1->num2 = 0x11111111;
+
+
+<55.8>
+struct Champion swain;
+strcpy(swain.name, "Swain");
+swain.stats.health=463.0;
+
+<55.9>
+struct Champion *swain = malloc(sizeof(struct Champion));
+swain->stats = malloc(sizeof(struct Stats));
+strcpy(swain->name, "Swain");
+swain->stats->health=463.0;
+
+<55.10>
+struct DeviceOption{
+    union{
+        struct{
+            unsigned char boot;
+            unsigned char interrupt;
+        };
+        short option;
+    };
+};
