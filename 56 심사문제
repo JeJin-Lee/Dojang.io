@@ -1,0 +1,14 @@
+
+<56.6>
+struct Flags{
+    unsigned short a : 4;
+    unsigned short b : 7;
+    unsigned short c : 3;
+};
+
+<56.7>
+unsigned short a : 3;
+unsigned short b : 4;
+unsigned short c : 7;
+unsigned short d : 2;
+
