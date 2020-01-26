@@ -1,0 +1,26 @@
+<57.8>
+enum PROTOCOL_TYPE{
+    PROTOCOL_IP = 4,
+    PROTOCOL_UDP ,
+    PROTOCOL_TCP ,
+};
+
+<57.9>
+enum MasterYiSkill skill;
+skill =Meditation;
+
+<57.10>
+for(INTERFACE_TYPE i = Internal; i<MaximumInterfaceType; i++)
+
+<58.10>
+num2=(int)num1;
+
+<58.11>
+numPtr2 = (int*)numPtr1;
+
+<58.12>
+*(long double*)
+
+<58.13>
+printf("%d\n", ((struct Stats *)ptr)->mana);
+printf("%d\n", ((struct Stats *)ptr)->movementSpeed);
