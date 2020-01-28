@@ -1,0 +1,11 @@
+<59.9>
+numPtrB = numPtrA+3;
+numPtrC = numPtrA+5;
+
+<59.10>
+num1 = *(numPtr+2);
+num2 = *((long long*)ptr+1);
+
+<59.11>
+result1 = ((struct Point3D *)ptr+1)->x ;
+result2 = ((struct Point3D *)ptr+2)->z ;
