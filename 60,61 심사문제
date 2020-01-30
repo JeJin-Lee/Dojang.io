@@ -1,0 +1,39 @@
+<60.7>
+void printIPAddress(){
+    printf("192.168.10.5\n");
+}
+
+void printHostname(){
+    printf("Jupiter\n");
+}
+
+<60.8>
+void printName();
+void printOrdinal();
+
+<61.10>
+float getArmor(){
+    return 20.5f;
+}
+bool hasSlowSkill(){
+    return false;
+}
+
+<61.11>
+void *getName(){
+    char *name = malloc(sizeof(char));
+    strcpy(name, "Neptune");
+    return name;
+}
+
+<61.12>
+void*allocMemory(){
+    void *ptr = malloc(100);
+}
+
+<61.13>
+struct Point2D *allocPoint2D(){
+    struct Point2D *p = malloc(sizeof(struct Point2D));
+    p->x = 90;
+    p->y = 75;
+}
