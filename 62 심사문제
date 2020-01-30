@@ -1,0 +1,17 @@
+<62.7>
+void setAttackSpeed(float a){
+    printf("Attack Speed: %f\n", a);
+}
+
+<62.8>
+long long add(long long num1, long long num2){
+    return num1 + num2;
+}
+
+<62.9>
+struct Point3D *allocPoint3D(float a, float b, float c){
+    struct Point3D *p1 = malloc(sizeof(struct Point3D));
+    p1 -> x = a;
+    p1 -> y = b;
+    p1 -> z = c;
+}
