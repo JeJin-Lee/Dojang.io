@@ -1,0 +1,101 @@
+< 연습문제 64.5 : 단위행렬 만들기 >
+#include <stdio.h>
+
+void setIdentityMatrix(float(*arr)[4], int count){
+    for(int i=0; i<count; i++){
+        arr[i][i] = 1.0f;
+    }
+}
+int main()
+{
+    float matrix[4][4] = { 0.0f, };
+
+    int n = sizeof(matrix[0]) / sizeof(float);
+
+    setIdentityMatrix(matrix, n);
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            printf("%f ", matrix[i][j]);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
+
+< 심사문제 64.6 : 배열 매개변수 사용하기>
+입력된 정수가 반대 순서로 출력되게 만드는 함수
+
+#include <stdio.h>
+
+void printReverse(int arr[], int n){
+    for(int i=0; i<n; i++){
+        printf("%d ", arr[n-i-1]);
+    }
+}
+
+
+int main()
+{
+    int numArr[10];
+
+    scanf("%d %d %d %d %d %d %d %d %d %d", 
+        &numArr[0], &numArr[1], &numArr[2], &numArr[3], &numArr[4], 
+        &numArr[5], &numArr[6], &numArr[7], &numArr[8], &numArr[9]
+    );
+
+    printReverse(numArr, sizeof(numArr) / sizeof(int));
+
+    return 0;
+}
+
+
+< 심사문제 64.7 : 전치행렬 만들기 >
+
+#include <stdio.h>
+
+void transpose(int arr[][4], int n){
+    int temp=0;
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            if(i>j){
+                temp = arr[i][j];
+                arr[i][j] = arr[j][i];
+                arr[j][i] = temp;
+            }
+        }
+    }
+}
+    
+int main()
+{
+    int matrix[4][4];
+
+    scanf("%d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d",
+        &matrix[0][0], &matrix[0][1], &matrix[0][2], &matrix[0][3],
+        &matrix[1][0], &matrix[1][1], &matrix[1][2], &matrix[1][3],
+        &matrix[2][0], &matrix[2][1], &matrix[2][2], &matrix[2][3],
+        &matrix[3][0], &matrix[3][1], &matrix[3][2], &matrix[3][3]
+    );
+
+    int n = sizeof(matrix[0]) / sizeof(int);
+
+    transpose(matrix, n);
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+
+        {
+            printf("%d ", matrix[i][j]);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
