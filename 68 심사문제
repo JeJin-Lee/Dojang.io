@@ -1,0 +1,12 @@
+int (*fp)(int *, int *);
+if(strcmp(funcName,"add")==0)
+fp = add;
+
+else if(strcmp(funcName,"sub")==0)
+fp = sub;
+
+else if(strcmp(funcName,"mul")==0)
+fp = mul;
+
+else
+fp = div;
