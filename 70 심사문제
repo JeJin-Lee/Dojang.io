@@ -1,0 +1,39 @@
+<70.8 심사문제>
+#include <stdio.h>
+
+int main()
+{
+    char name[31];
+    int order;
+
+    scanf("%s %d", name, &order);
+
+    FILE *fp = stdout;
+
+    fprintf(fp, "The %dth Satellite of Jupiter: %s\n", order, name);
+
+    fclose(fp);
+
+    return 0;
+}
+
+
+<심사문제 70.9>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(){
+    char *buffer = malloc(100);
+    memset(buffer, 0, 100);
+    
+    FILE *fp = fopen("words.txt", "r");
+    fread(buffer, 100, 1, fp);
+    
+    printf("%s\n", buffer);
+    
+    fclose(fp);
+    free(buffer);
+    
+    return 0'
+}
