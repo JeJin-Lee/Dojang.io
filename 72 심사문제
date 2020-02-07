@@ -1,0 +1,24 @@
+<심사문제 72.6>
+fwrite(&x1, sizeof(x1), 1, stdout);
+
+<심사문제 72.7>
+바이너리 형식으로 된 x850.bin 파일이 주어집니다. X850Firmware 구조체를 참조하여 x850.bin에 저장된 값을 출력하는 프로그램을 만드세요.
+
+#include <stdio.h>
+#pragma pack(push,1)
+struct x850Firmware{
+    short serial;
+    char mode;
+    char desc[20];
+    int version;
+};
+#pragma pop
+
+int main(){
+    struct x850Firmware x1;
+    memset(&x1, 0, sizeof(x1));
+    
+    FILE *fp= fopen("x850.bin", "rb");
+    fread(&x1, sizeof(x1), 1, fp);
+    printf("%d\n%c\n%s\n%d\n", x1.serial, x1.mode, x1.desc, x1.version);
+}
