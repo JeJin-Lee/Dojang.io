@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int circular(char *str);                          // 회문인지 아닌지 판별하는 함수, 회문이면 1을 반환, 아니면 0을 반환한다.
+int main(){
+    int i=0, j=0;
+    char *str, *newstr;                           // 공백 있는 문자열 str, str에서 공백을 기준으로 자른 후, 문자들을 붙여서 만들 newstr 문자열
+    str = malloc(sizeof(char)*100);               // 두 문자열의 메모리 할당
+    newstr = malloc(sizeof(char)*100);
+    char *arr[30]={NULL,};                        // str 문자열에서 공백을 기준으로 자른 문자열들의 메모리 주소를 보관할 배열 선언
+    scanf("%[^\n]s", str);                        // 공백을 포함한 문자열을 입력받음
+    
+    char *ptr = strtok(str, " ");                 // 공백을 기준으로 문자열을 자름
+    while(ptr!=NULL){                             // 자른 문자열이 나오지 않을 때까지 반복
+        arr[i] = ptr;
+        i++;
+        ptr = strtok(NULL, " ");                  // 다음 문자열 잘라서 포인터 반환
+    }
+   
+    while(arr[j]!=NULL){                          // 자른 문자열들을 보관한 배열의 끝까지 반복
+        strcat(newstr, arr[j]);                   // 새로운 문자열 뒤에 자른 문자열들을 하나씩 붙임
+        j++;
+    }                                             // 다 자르면, 입력 받은 문자열 중에서 공백 없는 문자열이 완성됨
+    printf("%d\n", circular(newstr));             // 새로운 문자열이 회문인지 판별
+
+}
+
+int circular(char *str){
+    int length=0, i, datum_point=0;
+    length = strlen(str);
+    
+    for(i=0; i<length/2; i++){
+        if(str[i]!=str[length-i-1])
+        return 0;
+    }
+    return 1;
+}
