@@ -1,0 +1,45 @@
+표준 입력으로 길이 1,000 이하의 문자열이 입력됩니다. 입력된 문자열에서 "the"의 개수를 출력하는 프로그램을 만드세요.
+단, 모든 문자가 소문자인 "the"만 찾으면 되며 "them", "there", "their" 등은 포함하지 않아야 합니다.
+
+(주의! 온점이나 쉼표도 카운트)
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+int main(){
+    int count=0;
+    char *str = malloc(sizeof(char)*1001);
+    scanf("%[^\n]s", str);
+    
+    char *ptr = strtok(str, " ,.");
+    while(ptr!=NULL){
+        if(strcmp("the", ptr)==0)
+            count++;
+        ptr = strtok(NULL, " ,.");
+    }
+    printf("%d\n", cnt);
+}
+
+<해설>
+길이 1,000 이하의 문자열이 입력된다고 했으므로 널 문자까지 포함하여 char 1001개 크기의 배열을 만들거나, 1001바이트 크기로 메모리를 할당합니다. 
+
+그리고 scanf 함수에 "%[^\n]s"를 지정하여 공백을 포함한 문자열을 입력받습니다.
+
+그다음에 단어 수를 계산할 변수 count를 선언한 뒤 0으로 초기화하고, char *ptr = strtok(s1, " .,");와 같이 " .,"를 지정하여 
+
+공백, 점, 콤마를 기준으로 문자열을 자릅니다(공백만 잘라도 되지만 the.나 the,와 같이 점이나 콤마로 끝나는 경우를 대비해 점과 콤마도 잘라줍니다).
+
+그리고 strcmp 함수를 사용하여 잘린 문자열의 포인터 ptr과 "the"를 비교하여 같으면 count를 1 증가시킵니다.
+
+while 반복문은 문자열이 나오지 않을 때까지 반복하도록 만들고, while 안에서는 strtok 함수의 자를 문자열 부분에 NULL을 넣어서 문자열을 계속 자릅니다.
+
+그리고 strcmp 함수를 사용하여 잘린 문자열이 "the"인지 비교하여 같으면 count를 1 증가시킵니다. 
+
+이렇게 하면 문자열을 자를 때마다 "the"인지 비교한 뒤 맞으면 count가 1씩 증가하게 되므로 "the"의 개수를 구할 수 있습니다.
+
+여기서 주의할 점이 있는데 strtok 함수에서 반환된 잘린 문자열의 포인터 ptr은 NULL일 수도 있으므로 
+ptr이 NULL이 아닐 때만 strcmp 함수로 비교해야 합니다. 만약 strcmp 함수에 NULL이 들어가면 에러가 발생합니다.
+
+if (ptr != NULL && strcmp(ptr, "the") == 0)    // ptr이 NULL이 아니면서 ptr이 the일 때
+    count++;                                   // count를 1 증가시킴
+문자열을 다 잘랐다면 printf 함수로 count의 값을 출력해주면 됩니다.
